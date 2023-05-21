@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <top-bar></top-bar>
-    <v-main>
+    <v-main class="main">
       <router-view />
     </v-main>
   </v-app>
@@ -13,6 +13,20 @@ import TopBar from './components/TopBar.vue'
 </script>
 
 <style lang="scss">
+* {
+  text-align: center;
+  color: black;
+}
+
+main {
+  margin-top: 2rem;
+}
+h1,
+h2,
+h3 {
+  color: #50b848;
+  margin: auto;
+}
 a {
   text-decoration: none;
   color: black;
