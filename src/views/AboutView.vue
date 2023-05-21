@@ -1,5 +1,44 @@
 <template>
+  <carousel-view :contents="contents"></carousel-view>
   <vContainer>
+    <text-section
+      title=" Mazout & Propane Beauchemin, le meilleur choix de la livraison de mazout et des systèmes au
+      propane"
+    >
+      <template v-slot:text1>
+        <VCol lg="6" md="12" sm="12" cols="12">
+          <h4 primary-title color="black">
+            Un service personnalisé pour votre chauffage à l'huile et chauffage au mazout
+          </h4>
+          <div class="mt-4 pr-16 pl-16">
+            Notre solide réputation de services est une de nos forces. Que ce soient nos délais de
+            livraison de propane ou de mazout, notre service d'urgence ou l'installation de votre
+            système de propane, nous sommes toujours au rendez-vous.
+          </div>
+          <div class="mt-4">
+            <span><a>Appelez-nous</a></span> pour du gaz
+            <span style="color: black"> propane, livraison </span>
+            automatique ou sur appel rapide et efficace!
+          </div>
+        </VCol>
+      </template>
+      <template v-slot:text2>
+        <VCol>
+          <h4>Une hirstoire de famille</h4>
+          <div class="mt-4 pr-16 pl-16">
+            Notre équipe s'appuie sur un grand bagage d'expérience de 60 ans. Nous sommes fiers
+            d'être la
+            <span><a>3e génération</a></span>
+            à prendre les commandes de l'entreprise. Nous sommes heureux de pouvoirvous offrir des
+            services inégalés et un dévouement à vous satisfaire constamment.
+          </div>
+          <div class="mt-4">
+            Nous prenons à cœur vos projets et nous nous assurons que vos attentes soient dépassées.
+          </div>
+        </VCol>
+        <div class="line"></div>
+      </template>
+    </text-section>
     <VRow>
       <VCol cols="12">
         <h1>L’historique de Mazout & Propane Beauchemin à Saint-Jean-sur-Richelieu</h1>
@@ -39,6 +78,28 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
+import TextSection from '@/components/TextSection.vue'
+import CarouselView from '@/components/CarouselView.vue'
+
+const contents = [
+  {
+    img: computed(() => '../assets/mapPicture.png'),
+    alt: 'agriculteur'
+  },
+  {
+    img: '@/assets/img/Agriculteurs_1.jpg',
+    alt: 'agriculteur'
+  },
+  {
+    img: '@/assets/img/Agriculteurs_1.jpg',
+    alt: 'agriculteur'
+  },
+  {
+    img: '@/assets/img/Agriculteurs_1.jpg',
+    alt: 'agriculteur'
+  }
+]
 const history = [
   {
     year: '1953',

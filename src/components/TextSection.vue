@@ -10,6 +10,8 @@
       </div>
       <a href="/blogue"> {{ blogue.btn }}</a>
     </VCol>
+    <slot name="text1"> </slot>
+    <slot name="text2"> </slot>
     <VCol cols="12" class="mb-10">
       <slot name="btn"> </slot>
     </VCol>

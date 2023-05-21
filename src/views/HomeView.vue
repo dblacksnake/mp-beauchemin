@@ -2,41 +2,7 @@
   <v-container>
     <top-photos :photos="items"></top-photos>
     <!-- Text Section --------------------------------------------------------------------------------->
-    <!-- <h1 class="mt-8 mb-8">
-      Mazout & Propane Beauchemin, le meilleur choix de la livraison de mazout et des systèmes au
-      propane
-    </h1>
-    <VRow class="textSection">
-      <VCol lg="6" md="12" sm="12" cols="12">
-        <h4 primary-title color="black">
-          Un service personnalisé pour votre chauffage à l'huile et chauffage au mazout
-        </h4>
-        <div class="mt-4 pr-16 pl-16">
-          Notre solide réputation de services est une de nos forces. Que ce soient nos délais de
-          livraison de propane ou de mazout, notre service d'urgence ou l'installation de votre
-          système de propane, nous sommes toujours au rendez-vous.
-        </div>
-        <div class="mt-4">
-          <span><a>Appelez-nous</a></span> pour du gaz
-          <span style="color: black"> propane, livraison </span>
-          automatique ou sur appel rapide et efficace!
-        </div>
-      </VCol>
-      <VCol>
-        <h4>Une hirstoire de famille</h4>
-        <div class="mt-4 pr-16 pl-16">
-          Notre équipe s'appuie sur un grand bagage d'expérience de 60 ans. Nous sommes fiers d'être
-          la
-          <span><a>3e génération</a></span>
-          à prendre les commandes de l'entreprise. Nous sommes heureux de pouvoirvous offrir des
-          services inégalés et un dévouement à vous satisfaire constamment.
-        </div>
-        <div class="mt-4">
-          Nous prenons à cœur vos projets et nous nous assurons que vos attentes soient dépassées.
-        </div>
-      </VCol>
-      <div class="line"></div>
-    </VRow> -->
+
     <!-- Blogue section------------------------------------------------------------------------------->
     <text-section title="Blogue" :content="blogues">
       <template v-slot:btn>
@@ -72,8 +38,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent } from 'vue'
-
 // Components
 // import TopPhotos from '@/components/TopPhotos.vue'
 import ContactSection from '@/components/home/ContactSection.vue'
