@@ -1,11 +1,11 @@
 <template>
-  <v-container grid-list-xs>
+  <v-container>
     <VRow>
       <VCol lg="7" md="12" sm="12" cols="12">
-        <lubrifiants-view></lubrifiants-view>
+        <LubrifiantsView></LubrifiantsView>
       </VCol>
       <VCol lg="5" md="12" sm="12" cols="12">
-        <carburants-view></carburants-view>
+        <CarburantsView></CarburantsView>
       </VCol>
     </VRow>
     <VRow>
@@ -20,8 +20,8 @@
 </template>
 
 <style setup lang="ts">
-import CarburantsView from '@/components/LubriCarbu/CarburantsView.vue';
-import LubrifiantsView from '@/components/LubriCarbu/LubrifiantsView.vue';
+import CarburantsView from '@/components/LubriCarbu/CarburantsView.vue'
+import LubrifiantsView from '@/components/LubriCarbu/LubrifiantsView.vue'
 </style>
 
 <style lang="scss" scoped>

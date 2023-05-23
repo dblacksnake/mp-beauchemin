@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import List from '../components/ListComponent.vue'
+import List from '../ListComponent.vue'
 
 const lists = [
   {
