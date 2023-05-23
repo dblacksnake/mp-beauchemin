@@ -1,6 +1,3 @@
-<!-- eslint-disable linebreak-style -->
-<!-- eslint-disable max-len -->
-
 <template>
   <v-container grid-list-xs>
     <!-- <h1>Votre distributeur et fournisseur de gaz propane dans le Grand Montréal</h1> -->
@@ -17,9 +14,7 @@
           </template>
           <template v-slot:smallTitle1>Nos marques de confiance</template>
           <template v-slot:text1>Chez Mazout & Propane Beauchemin, nous effectuons la vente et l'installation de chauffe-eau au gaz propane de différentes marques réputées pour leur durabilité et leur rendement énergétique.</template>
-          <!-- <template v-slot:></template>
-          <template v-slot:></template>
-          <template v-slot:></template> -->
+
         </paragraphes>
         <ul>
           <h4 class="listTitle mb-4">Pour usage résidentiel</h4>
@@ -54,20 +49,12 @@
     </VRow>
   </v-container>
 </template>
-<!-- eslint-disable linebreak-style -->
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import Paragraphes from '../ParagraphesComponent.vue';
 import List from '../ListComponent.vue';
 
-export default defineComponent({
-  name: 'ChauffageEau',
-  components: {
-    Paragraphes,
-    List,
-  },
-  setup() {
     const lists = [
       {
         title: 'Nos chauffe-eau au gaz propane utilisent les plus récentes technologies et sont offerts en différents formats. Nous installons entre autres des modèles :',
@@ -90,13 +77,9 @@ export default defineComponent({
         ],
       },
     ];
-    return {
-      lists,
-    };
-  },
-});
+
+
 </script>
-<!-- eslint-disable linebreak-style -->
 
 <style lang="scss" scoped>
 

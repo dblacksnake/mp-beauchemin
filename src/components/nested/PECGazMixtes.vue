@@ -1,6 +1,3 @@
-<!-- eslint-disable linebreak-style -->
-<!-- eslint-disable max-len -->
-
 <template>
     <v-container grid-list-xs>
       <!-- <h1>Votre distributeur et fournisseur de gaz propane dans le Grand Montréal</h1> -->
@@ -13,25 +10,15 @@
       </VRow>
     </v-container>
   </template>
-  <!-- eslint-disable linebreak-style -->
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import EncastreGaz from './EncastreGaz.vue';
 import PoeleGaz from './PoeleGaz.vue';
 import CuisiniereGaz from './CuisiniereGaz.vue';
 
-export default defineComponent({
-  components: { EncastreGaz, PoeleGaz, CuisiniereGaz },
-  name: 'PECMixtes',
-  setup() {
-    return {
 
-    };
-  },
-});
 </script>
-  <!-- eslint-disable linebreak-style -->
 
   <style>
 

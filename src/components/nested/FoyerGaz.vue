@@ -1,5 +1,3 @@
-<!-- eslint-disable linebreak-style -->
-<!-- eslint-disable max-len -->
 <template>
     <v-container grid-list-xs>
       <VRow>
@@ -70,26 +68,13 @@
       </VRow>
     </v-container>
 </template>
-<!-- eslint-disable linebreak-style -->
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import Paragraphes from '../ParagraphesComponent.vue';
 
 
-export default defineComponent({
-  name: 'FoyerGaz',
-  components: {
-    Paragraphes,
-  },
-  setup() {
-    return {
-
-    };
-  },
-});
 </script>
-<!-- eslint-disable linebreak-style -->
 
 <style lang="scss" scoped>
 a{

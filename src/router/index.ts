@@ -49,7 +49,7 @@ const router = createRouter({
           component: ChauffeEau,
         },
         {
-          path: 'mixte',
+          path: 'installation',
           component: PECGazMixtes,
         },
         // {

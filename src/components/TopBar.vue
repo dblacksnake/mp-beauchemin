@@ -1,13 +1,62 @@
 <template>
   <div class="appBar">
+    <v-navigation-drawer v-model="drawer" location="right" :disable-resize-watcher="true">
+<!--     
+        <v-list>
+          <v-list-item v-for="btn in barButtons" :key="btn.name" link>
+            <router-link :to="btn.href"  v-if="btn.type === 'btn'">
+              <VIcon color="black">{{ btn.icon }}</VIcon>
+              {{ btn.name }}
+            </router-link>
+          </v-list-item>
+        </v-list>
+        <template v-slot:activator="{ props }">
+                  <router-link :to="btn.href" class="dropdownList" v-bind="props">
+                    {{ btn.name }}</router-link
+                  >
+                </template>
+                <v-list>
+                  <v-list-item v-for="child in btn.children" :key="child.name" link>
+                    <router-link :to="child.href">
+                      <VIcon color="black">{{ child.icon }}</VIcon>
+                      {{ child.name }}
+                    </router-link>
+                  </v-list-item>
+                </v-list> -->
+                <v-list>
+          <v-list-item v-for="btn in barButtons" :key="btn.name" link>
+            <router-link :to="btn.href" v-if="btn.type === 'btn'">
+              {{ btn.name }}
+            </router-link>
+            <span v-else @mouseover="hover = true" @mouseleave="hover = false">
+              <v-menu open-on-hover transition="slide-y-transition">
+                <template v-slot:activator="{ props }">
+                  <router-link :to="btn.href" class="dropdownList" v-bind="props">
+                    {{ btn.name }}</router-link
+                  >
+                </template>
+                <v-list>
+                  <v-list-item v-for="child in btn.children" :key="child.name" link>
+                    <router-link :to="child.href">
+                      <VIcon color="black">{{ child.icon }}</VIcon>
+                      {{ child.name }}
+                    </router-link>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </span>
+          </v-list-item>
+        </v-list>
+    </v-navigation-drawer>
+
     <v-app-bar app color="white" dark density="prominent">
       <router-link to="/" class="d-flex align-center logo">
         <img
-          class="logoBeauchemin hidden-lg-and-down"
+          class="logoBeauchemin "
           src="../assets/LogoBeauchemin.png"
           alt="Beauchemin"
         />
-        <img class="logo65" src="../assets/NouveauLogo65ans.jpg" alt="Beauchemin" />
+        <!-- <img class="logo65" src="../assets/NouveauLogo65ans.jpg" alt="Beauchemin" /> -->
       </router-link>
 
       <v-spacer></v-spacer>
@@ -39,9 +88,9 @@
         </ul>
       </nav>
       <!-- Small Screen Menu ------------------------------------------------------------->
-      <v-menu class="hidden-lg-and-up">
-        <template v-slot:activator="{ attrs }">
-          <v-app-bar-nav-icon class="hidden-lg-and-up" v-bind="attrs" color="black">
+      <!-- <v-menu class="hidden-lg-and-up">
+        <template v-slot:activator="{ on }">
+          <v-app-bar-nav-icon class="hidden-lg-and-up" v-bind="on" color="black">
           </v-app-bar-nav-icon>
         </template>
         <v-list>
@@ -51,7 +100,7 @@
               {{ child.name }}
             </router-link>
           </v-list-item>
-        </v-list>
+        </v-list> -->
         <!-- <v-list>
           <v-list-item v-for="(btn, index) in barButtons" :key="index">
             <router-link :to="btn.href">
@@ -61,7 +110,12 @@
             <v-list-item-title v-text="btn.name"></v-list-item-title>
           </v-list-item>
         </v-list> -->
-      </v-menu>
+      <!-- </v-menu> -->
+
+      <v-app-bar-nav-icon  class="hidden-lg-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+
+
     </v-app-bar>
     <div class="under">
       <H2 class="hidden-sm-and-down">LA PASSION QUI NOUS ALLUME</H2>
@@ -76,7 +130,7 @@ import { ref } from 'vue'
 
 const isOpen = ref(false)
 const hover = ref(false)
-
+const drawer = ref(false);
 const barButtons = [
   {
     name: 'Accueil',
@@ -108,19 +162,9 @@ const barButtons = [
         icon: 'mdi-water-boiler'
       },
       {
-        href: '/gaz-propane/mixte#poele',
-        name: 'Poêles au gaz',
+        href: '/gaz-propane/installation',
+        name: 'Installation',
         icon: 'mdi-fire'
-      },
-      {
-        href: '/gaz-propane/mixte#encastre',
-        name: 'Encastré au gaz',
-        icon: 'mdi-fireplace'
-      },
-      {
-        href: '/gaz-propane/mixte#cuisiniere',
-        name: 'Cuisinières au gaz',
-        icon: 'mdi-stove'
       },
       {
         href: '/gaz-propane/chauffage-garage',
@@ -137,11 +181,11 @@ const barButtons = [
         name: 'Livraison de propane',
         icon: 'mdi-truck-delivery'
       },
-      {
-        href: '/gaz-propane/remplissage',
-        name: 'Points de remplissage',
-        icon: 'mdi-basket-fill'
-      }
+      // {
+      //   href: '/gaz-propane/remplissage',
+      //   name: 'Points de remplissage',
+      //   icon: 'mdi-basket-fill'
+      // }
     ]
   },
   {

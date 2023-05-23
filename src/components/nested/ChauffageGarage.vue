@@ -36,18 +36,11 @@
 </template>
 <!-- eslint-disable linebreak-style -->
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import Paragraphes from '../ParagraphesComponent.vue';
 import List from '../ListComponent.vue';
 
-export default defineComponent({
-  name: 'ChauffageGarage',
-  components: {
-    Paragraphes,
-    List,
-  },
-  setup() {
     const list = {
       title: 'Nos produits',
       bullets: [
@@ -61,11 +54,7 @@ export default defineComponent({
         'Système de chauffage à infrarouge',
       ],
     };
-    return {
-      list,
-    };
-  },
-});
+
 </script>
 <!-- eslint-disable linebreak-style -->
 

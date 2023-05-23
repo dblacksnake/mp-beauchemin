@@ -1,4 +1,3 @@
-<!-- eslint-disable linebreak-style -->
 <template>
     <v-container grid-list-xs>
       <!-- <h1>Votre distributeur et fournisseur de gaz propane dans le Grand Montréal</h1> -->
@@ -58,19 +57,12 @@
       </VRow>
     </v-container>
 </template>
-<!-- eslint-disable linebreak-style -->
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import Paragraphes from '../ParagraphesComponent.vue';
 
 
-export default defineComponent({
-  name: 'GazPropane',
-  components: {
-    Paragraphes,
-  },
-  setup() {
     const lists = [
       'Location de réservoirs (bouteilles)',
       'Livraison (résidentiel, commercial, agricole et industriel)',
@@ -90,12 +82,7 @@ export default defineComponent({
         d’extraction du gaz naturel et des gaz associés dans les gisements de pétrole. »`,
       '',
     ];
-    return {
-      lists,
-      firstSection,
-    };
-  },
-});
+
 </script>
 <!-- eslint-disable linebreak-style -->
 

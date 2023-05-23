@@ -1,6 +1,3 @@
-<!-- eslint-disable linebreak-style -->
-<!-- eslint-disable max-len -->
-
 <template>
   <v-container grid-list-xs>
     <!-- <h1>Votre distributeur et fournisseur de gaz propane dans le Grand Montréal</h1> -->
@@ -30,17 +27,12 @@
     </VRow>
   </v-container>
 </template>
-<!-- eslint-disable linebreak-style -->
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import Paragraphes from '../ParagraphesComponent.vue';
 import List from '../ListComponent.vue';
 
-export default defineComponent({
-  components: { Paragraphes, List },
-  name: 'LocationGaz',
-  setup() {
     const list = {
       title: 'Lors de l’installation d’un réservoir de gaz propane chez l’un de nos clients, nous nous assurons en tout temps que les distances de dégagement sécuritaires sont respectées, soit :',
       bullets: [
@@ -49,11 +41,7 @@ export default defineComponent({
         'À 3 mètres d’une source d’allumage (climatiseur, thermopompe, prise électrique, etc.',
       ],
     };
-    return {
-      list,
-    };
-  },
-});
+
 </script>
 <!-- eslint-disable linebreak-style -->
 

@@ -35,19 +35,9 @@ const topMenu = [
         icon: 'mdi-water-boiler',
       },
       {
-        href: '/gaz-propane/mixte#poele',
-        name: 'Poêles au gaz',
-        icon: 'mdi-gas-burner',
-      },
-      {
-        href: '/gaz-propane/mixte#encastre',
-        name: 'Encastré au gaz',
-        icon: 'mdi-fireplace',
-      },
-      {
-        href: '/gaz-propane/mixte#cuisiniere',
-        name: 'Cuisinières au gaz',
-        icon: 'mdi-stove',
+        href: '/gaz-propane/installation',
+        name: 'installation',
+        icon: 'mdi-fire',
       },
       {
         href: '/gaz-propane/chauffage-garage',
@@ -64,22 +54,27 @@ const topMenu = [
         name: 'Livraison de propane',
         icon: 'mdi-truck-delivery',
       },
-      {
-        href: '/gaz-propane/remplissage',
-        name: 'Points de remplissage',
-        icon: 'mdi-basket-fill',
-      },
+      // {
+      //   href: '/gaz-propane/remplissage',
+      //   name: 'Points de remplissage',
+      //   icon: 'mdi-basket-fill',
+      // },
     ];
 </script>
 
 <style lang="scss" scoped>
 .topMenu{
     width: 100%;
+    min-height: 15rem;
     margin: 0;
+    // padding: rem 0;
     background-color: #FAFAFA;
+
+    align-content:center ;
     i::before{
-        color:black;
-        font-size: 5rem;
+        color:#134B8E;
+        font-size: 3rem;
+        // margin-top: 1rem;
     }
 
     a{
@@ -87,19 +82,21 @@ const topMenu = [
     }
 
     .topTitle{
-        font-size:1.5rem;
+        font-size:1.45rem;
     }
 
 }
 .menu{
 
   &:hover .topTitle{
-    color:#134B8E;
+    // color:#134B8E;
+    font-size: 1.55rem;
+
   }
 
   &:hover i::before {
       color:#134B8E;
-      font-size: 6rem;
+      font-size: 4rem;
     }
 }
 
