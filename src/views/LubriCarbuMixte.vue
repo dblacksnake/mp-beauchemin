@@ -20,8 +20,8 @@
 </template>
 
 <style setup lang="ts">
-import CarburantsView from '@/components/LubriCarbu/CarburantsView.vue'
 import LubrifiantsView from '@/components/LubriCarbu/LubrifiantsView.vue'
+import CarburantsView from '@/components/LubriCarbu/CarburantsView.vue'
 </style>
 
 <style lang="scss" scoped>

@@ -2,7 +2,7 @@
   <v-app>
     <top-bar></top-bar>
     <v-main class="main">
-      <router-view />
+      <router-view class="router"/>
     </v-main>
   </v-app>
 </template>
@@ -20,6 +20,12 @@ import TopBar from './components/TopBar.vue'
 
 main {
   margin-top: 2rem;
+}
+
+.router{
+  margin-top: 2rem;
+  min-width: 80%;
+
 }
 h1,
 h2,

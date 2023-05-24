@@ -5,17 +5,8 @@
         <VRow>
             <VCol lg="6" md="12" sm="12" cols="12">
                 Merci de prendre le temps de nous écrire pour nous donner vos commentaires ou demande. Il nous fera plaisir de vous répondre le plus rapidement possible.
-                <!-- <validation-observer
-                    ref="observer"
-                    id="validation-observer"
-                    v-slot="{ invalid }"
-                    >
-                    <form @submit.prevent="submit()">
-                        <validation-provider
-                        v-slot="{ errors }"
-                        name="Name"
-                        rules="required|max:30"
-                        >
+                <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors }">
+                   
                             <v-text-field
                                 v-model="name"
                                 :counter="10"
@@ -23,15 +14,7 @@
                                 label="Nom*"
                                 required
                             ></v-text-field>
-                        </validation-provider>
-                            <validation-provider
-                            v-slot="{ errors }"
-                            name="phoneNumber"
-                            :rules="{
-                                required: true,
-                                digits: 10,
-                            }"
-                            >
+                       
                             <v-text-field
                                 v-model="phoneNumber"
                                 :counter="7"
@@ -39,24 +22,14 @@
                                 label="Numéro de téléphone*"
                                 required
                             ></v-text-field>
-                            </validation-provider>
-                            <validation-provider
-                            v-slot="{ errors }"
-                            name="email"
-                            rules="required|email"
-                            >
+                          
                             <v-text-field
                                 v-model="emailAddress"
                                 :error-messages="errors"
                                 label="Adresse courriel*"
                                 required
                             ></v-text-field>
-                            </validation-provider>
-                            <validation-provider
-                            v-slot="{ errors }"
-                            name="select"
-                            rules="required"
-                            >
+                          
                             <v-select
                                 v-model="select"
                                 :items="items"
@@ -65,12 +38,7 @@
                                 data-vv-name="select"
                                 required
                             ></v-select>
-                            </validation-provider>
-                            <validation-provider
-                        v-slot="{ errors }"
-                        name="Comment"
-                        rules="required|max:500"
-                        >
+                         
                             <v-textarea
                                 v-model="comment"
                                 :counter="500"
@@ -78,7 +46,6 @@
                                 label="Commentaires"
                                 required
                             ></v-textarea>
-                        </validation-provider>
 
                         <v-btn
                         class="mr-4"
@@ -90,8 +57,8 @@
                         <v-btn @click="clear">
                         clear
                         </v-btn>
-                    </form>
-                </validation-observer> -->
+            </Form>
+               
             </VCol>
             <VCol>
                 <v-card min-height="250" elevation="0">
@@ -150,46 +117,29 @@
 
 <script setup lang="ts">
 import { defineComponent, ref } from 'vue';
-// import {
-//   required, digits, email, max, regex,
-// } from 'vee-validate/dist/rules';
-// import {
-//   extend, ValidationObserver, ValidationProvider, setInteractionMode,
-// } from 'vee-validate';
-// import List from '@/components/List.vue';
+import { Form, Field } from 'vee-validate';
+import * as Yup from 'yup';
 
-// setInteractionMode('eager');
+const schema = Yup.object().shape({
+    phoneNumber: Yup.string()
+        .required('Phone Number is required'),
+    emailAddress: Yup.string()
+    .required('Email is required')
+        .email('Email is invalid'),
+        name: Yup.string()
+        .required('Full name is required'),
+});
 
-// extend('digits', {
-//   ...digits,
-//   message: 'Le numéro de téléphone doit contenir {length} chiffres. ({_value_})',
-// });
+function onSubmit(values) {
+    // display form values on success
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(values, null, 4));
+}
 
-// extend('required', {
-//   ...required,
-//   message: 'Cette entrée ne peut pas être vide.',
-// });
-
-// extend('max', {
-//   ...max,
-//   message: '{_field_} may not be greater than {length} characters',
-// });
-
-// extend('regex', {
-//   ...regex,
-//   message: '{_field_} {_value_} does not match {regex}',
-// });
-
-// extend('email', {
-//   ...email,
-//   message: 'Le email est invalide',
-// });
-
-const name = ref('');
+    const name = ref('');
     const phoneNumber = ref('');
     const emailAddress = ref('');
     const comment = ref('');
-    let select = false;
+    let select = null;
     const checkbox = null
 
     const contacts = [
@@ -264,7 +214,8 @@ const name = ref('');
       name.value = '';
       phoneNumber.value = '';
       emailAddress.value = '';
-      select = false;
+      comment.value = '';
+      select = null;
     //   this.$refs.observer.reset();
     };
 
