@@ -1,30 +1,17 @@
 <template>
   <div class="appBar">
-    <v-navigation-drawer v-model="drawer" location="right" :disable-resize-watcher="true">
-      <!--     
-        <v-list>
-          <v-list-item v-for="btn in barButtons" :key="btn.name" link>
-            <router-link :to="btn.href"  v-if="btn.type === 'btn'">
-              <VIcon color="black">{{ btn.icon }}</VIcon>
-              {{ btn.name }}
-            </router-link>
-          </v-list-item>
-        </v-list>
-        <template v-slot:activator="{ props }">
-                  <router-link :to="btn.href" class="dropdownList" v-bind="props">
-                    {{ btn.name }}</router-link
-                  >
-                </template>
-                <v-list>
-                  <v-list-item v-for="child in btn.children" :key="child.name" link>
-                    <router-link :to="child.href">
-                      <VIcon color="black">{{ child.icon }}</VIcon>
-                      {{ child.name }}
-                    </router-link>
-                  </v-list-item>
-                </v-list> -->
+    <v-navigation-drawer 
+    v-model="drawer" 
+    location="right" 
+    :disable-resize-watcher="true"
+    temporary>
+      <!-- Mobile Menu -->
       <v-list>
-        <v-list-item v-for="btn in barButtons" :key="btn.name" link>
+        <v-list-item  
+        v-for="btn in barButtons" 
+        :key="btn.name" 
+        link
+        @click="to(btn.href)">
           <router-link :to="btn.href" v-if="btn.type === 'btn'">
             {{ btn.name }}
           </router-link>
@@ -59,7 +46,7 @@
       <!-- Regular Top Button -------------------------------------------------------------->
       <nav class="hidden-md-and-down reglardNav" id="nav">
         <ul class="normalMenu">
-          <li v-for="btn in barButtons" :key="btn.name">
+          <li  v-for="btn in barButtons" :key="btn.name">
             <router-link :to="btn.href" v-if="btn.type === 'btn'">
               {{ btn.name }}
             </router-link>
@@ -83,30 +70,6 @@
           </li>
         </ul>
       </nav>
-      <!-- Small Screen Menu ------------------------------------------------------------->
-      <!-- <v-menu class="hidden-lg-and-up">
-        <template v-slot:activator="{ on }">
-          <v-app-bar-nav-icon class="hidden-lg-and-up" v-bind="on" color="black">
-          </v-app-bar-nav-icon>
-        </template>
-        <v-list>
-          <v-list-item v-for="child in barButtons" :key="child.name" link>
-            <router-link :to="child.href">
-              <VIcon color="black">{{ child.icon }}</VIcon>
-              {{ child.name }}
-            </router-link>
-          </v-list-item>
-        </v-list> -->
-      <!-- <v-list>
-          <v-list-item v-for="(btn, index) in barButtons" :key="index">
-            <router-link :to="btn.href">
-              <VIcon color="black">{{ btn.icon }}</VIcon>
-              {{ btn.name }}
-            </router-link>
-            <v-list-item-title v-text="btn.name"></v-list-item-title>
-          </v-list-item>
-        </v-list> -->
-      <!-- </v-menu> -->
 
       <v-app-bar-nav-icon class="hidden-lg-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
@@ -120,7 +83,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
 
+const route = useRouter();
 const isOpen = ref(false)
 const hover = ref(false)
 const drawer = ref(false)
@@ -174,11 +139,6 @@ const barButtons = [
         name: 'Livraison de propane',
         icon: 'mdi-truck-delivery'
       }
-      // {
-      //   href: '/gaz-propane/remplissage',
-      //   name: 'Points de remplissage',
-      //   icon: 'mdi-basket-fill'
-      // }
     ]
   },
   {
@@ -206,12 +166,11 @@ const barButtons = [
     index: 6
   }
 ]
+
+const to = (href:string) => route.push(href)
 </script>
 
 <style lang="scss" scoped>
-@media screen {
-}
-
 .appBar {
   position: absolute;
   height: 135px;

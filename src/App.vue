@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <top-bar></top-bar>
+
     <v-main class="main">
       <router-view class="router" />
     </v-main>

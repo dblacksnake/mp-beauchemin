@@ -1,16 +1,42 @@
 <template>
   <v-container>
     <top-photos :photos="items"></top-photos>
-    <!-- Text Section --------------------------------------------------------------------------------->
-
-    <!-- Blogue section------------------------------------------------------------------------------->
-    <text-section title="Nos Services" :content="blogues">
+    <!-- Service Section --------------------------------------------------------------------------------->
+    <text-section title="Services" :content="services">
+      <template v-slot:btn>
+        <v-btn color="primary" class="text-none blogueBtn">
+          <span class="text-white">Voir plus de services</span></v-btn
+        >
+      </template>
+    </text-section>
+    <!-- Artcicle section------------------------------------------------------------------------------->
+    <text-section title="Articles" :content="articles">
       <template v-slot:btn>
         <v-btn color="primary" class="text-none blogueBtn">
           <span class="text-white">Lire Plus d'articles</span></v-btn
         >
       </template>
     </text-section>
+    <!-- Text Section --------------------------------------------------------------------------------->
+       <text-section>
+        <template #text1>
+         <VCol lg="6" md="12" sm="12" cols="12" class="mb-8">
+          <h2 primary-title >
+            Un service personnalisé pour votre chauffage à l'huile et chauffage au mazout
+          </h2>
+          <div class="mt-4 pr-16 pl-16">
+            Notre solide réputation de services est une de nos forces. Que ce soient nos délais de
+            livraison de propane ou de mazout, notre service d'urgence ou l'installation de votre
+            système de propane, nous sommes toujours au rendez-vous.
+          </div>
+          <div class="mt-4">
+            <span><a>Appelez-nous</a></span> pour du gaz
+            <span style="color: black"> propane, livraison </span>
+            automatique ou sur appel rapide et efficace!
+          </div>
+        </VCol>
+      </template>
+       </text-section>
     <!-- Contact Section ------------------------------------------------------------------------------>
     <ContactSection></ContactSection>
     <!-- Button Section -------------------------------------------------------------------------------->
@@ -43,7 +69,28 @@
 import ContactSection from '@/components/home/ContactSection.vue'
 import TextSection from '@/components/TextSection.vue'
 
-const blogues = [
+const services = [
+  {
+    title: 'Livraison Propane',
+    text:'',
+    btn: 'Lire plus'
+
+  },
+  {
+    title: 'Location de réservoir de gaz propane',
+    text:'',
+    btn: 'Lire plus'
+
+  },
+  {
+    title: 'Foyer au gaz',
+    text:'',
+    btn: 'Lire plus'
+
+  }
+]
+
+const articles = [
   {
     title: '5 utilisations insoupçonnées du propane',
     text: 'De façon courante, à la maison, on utilise souvent le propane pour alimenter les chauffe-eau de la piscine et du foyer, mais ce type de gaz a plusieurs autres fonctions, parfois insoupçonnées. Découvrez-en 5!',
