@@ -2,7 +2,7 @@
   <v-app>
     <top-bar></top-bar>
     <v-main class="main">
-      <router-view class="router"/>
+      <router-view class="router" />
     </v-main>
   </v-app>
 </template>
@@ -22,10 +22,9 @@ main {
   margin-top: 2rem;
 }
 
-.router{
+.router {
   margin-top: 2rem;
   min-width: 80%;
-
 }
 h1,
 h2,

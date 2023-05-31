@@ -6,11 +6,11 @@
     <VCol cols="12" sm="12" lg="3" md="4">
       <v-card class="contactInfos" min-height="250" elevation="0" color="transparent">
         <v-card-title class="mx-auto contactInfos" color="black">
-          <span>T.<a style="color: black !important; cursor: pointer">514-990-1901</a></span>
+          <span>T.<a style="color: #2b4479 !important; cursor: pointer">514-990-1901</a></span>
         </v-card-title>
         <v-card-subtitle class="contactInfos">général & urgence</v-card-subtitle>
         <v-card-text class="contactInfos">
-          <span style="color: black"> Adresse</span>
+          <span style="color: #2b4479"> Adresse</span>
           <br />
           775, rue Gaudette
           <br />
@@ -19,8 +19,8 @@
           J3B 7S7
         </v-card-text>
         <v-card-text class="contactInfos">
-          <span style="color: black"
-            >F. <a style="color: black !important; cursor: pointer">450 359-4431</a></span
+          <span style="color: #2b4479"
+            >F. <a style="color: #2b4479 !important; cursor: pointer">450 359-4431</a></span
           >
           <br />
           <span><a>info@mpbeauchemin.com</a></span>
@@ -41,6 +41,11 @@
 </template>
 
 <style lang="scss" scoped>
+* {
+  color: #2b4479;
+  font-size: 1.2rem;
+}
+
 img {
   object-fit: fill;
   width: 100%;

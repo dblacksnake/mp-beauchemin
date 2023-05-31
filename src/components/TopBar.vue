@@ -1,7 +1,7 @@
 <template>
   <div class="appBar">
     <v-navigation-drawer v-model="drawer" location="right" :disable-resize-watcher="true">
-<!--     
+      <!--     
         <v-list>
           <v-list-item v-for="btn in barButtons" :key="btn.name" link>
             <router-link :to="btn.href"  v-if="btn.type === 'btn'">
@@ -23,46 +23,42 @@
                     </router-link>
                   </v-list-item>
                 </v-list> -->
-                <v-list>
-          <v-list-item v-for="btn in barButtons" :key="btn.name" link>
-            <router-link :to="btn.href" v-if="btn.type === 'btn'">
-              {{ btn.name }}
-            </router-link>
-            <span v-else @mouseover="hover = true" @mouseleave="hover = false">
-              <v-menu open-on-hover transition="slide-y-transition">
-                <template v-slot:activator="{ props }">
-                  <router-link :to="btn.href" class="dropdownList" v-bind="props">
-                    {{ btn.name }}</router-link
-                  >
-                </template>
-                <v-list>
-                  <v-list-item v-for="child in btn.children" :key="child.name" link>
-                    <router-link :to="child.href">
-                      <VIcon color="black">{{ child.icon }}</VIcon>
-                      {{ child.name }}
-                    </router-link>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </span>
-          </v-list-item>
-        </v-list>
+      <v-list>
+        <v-list-item v-for="btn in barButtons" :key="btn.name" link>
+          <router-link :to="btn.href" v-if="btn.type === 'btn'">
+            {{ btn.name }}
+          </router-link>
+          <span v-else @mouseover="hover = true" @mouseleave="hover = false">
+            <v-menu open-on-hover transition="slide-y-transition">
+              <template v-slot:activator="{ props }">
+                <router-link :to="btn.href" class="dropdownList" v-bind="props">
+                  {{ btn.name }}</router-link
+                >
+              </template>
+              <v-list>
+                <v-list-item v-for="child in btn.children" :key="child.name" link>
+                  <router-link :to="child.href">
+                    <VIcon color="black">{{ child.icon }}</VIcon>
+                    {{ child.name }}
+                  </router-link>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </span>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
 
     <v-app-bar app color="white" dark density="prominent">
       <router-link to="/" class="d-flex align-center logo">
-        <img
-          class="logoBeauchemin "
-          src="../assets/LogoBeauchemin.png"
-          alt="Beauchemin"
-        />
+        <img class="logoBeauchemin" src="../assets/LogoBeauchemin.png" alt="Beauchemin" />
         <!-- <img class="logo65" src="../assets/NouveauLogo65ans.jpg" alt="Beauchemin" /> -->
       </router-link>
 
       <v-spacer></v-spacer>
       <!-- Regular Top Button -------------------------------------------------------------->
-      <nav class="hidden-md-and-down" id="nav">
-        <ul>
+      <nav class="hidden-md-and-down reglardNav" id="nav">
+        <ul class="normalMenu">
           <li v-for="btn in barButtons" :key="btn.name">
             <router-link :to="btn.href" v-if="btn.type === 'btn'">
               {{ btn.name }}
@@ -101,7 +97,7 @@
             </router-link>
           </v-list-item>
         </v-list> -->
-        <!-- <v-list>
+      <!-- <v-list>
           <v-list-item v-for="(btn, index) in barButtons" :key="index">
             <router-link :to="btn.href">
               <VIcon color="black">{{ btn.icon }}</VIcon>
@@ -112,10 +108,7 @@
         </v-list> -->
       <!-- </v-menu> -->
 
-      <v-app-bar-nav-icon  class="hidden-lg-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-
-
+      <v-app-bar-nav-icon class="hidden-lg-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
     <div class="under">
       <H2 class="hidden-sm-and-down">LA PASSION QUI NOUS ALLUME</H2>
@@ -130,7 +123,7 @@ import { ref } from 'vue'
 
 const isOpen = ref(false)
 const hover = ref(false)
-const drawer = ref(false);
+const drawer = ref(false)
 const barButtons = [
   {
     name: 'Accueil',
@@ -180,7 +173,7 @@ const barButtons = [
         href: '/gaz-propane/livraison',
         name: 'Livraison de propane',
         icon: 'mdi-truck-delivery'
-      },
+      }
       // {
       //   href: '/gaz-propane/remplissage',
       //   name: 'Points de remplissage',
@@ -201,8 +194,8 @@ const barButtons = [
     index: 4
   },
   {
-    name: 'Blogue',
-    href: '/blogue',
+    name: 'Articles',
+    href: '/articles',
     type: 'btn',
     index: 5
   },
@@ -216,6 +209,9 @@ const barButtons = [
 </script>
 
 <style lang="scss" scoped>
+@media screen {
+}
+
 .appBar {
   position: absolute;
   height: 135px;
@@ -240,6 +236,7 @@ const barButtons = [
 .logo {
   position: absolute;
   top: 50%;
+  left: 2%;
   transform: translateY(-50%);
   cursor: pointer;
 
@@ -276,14 +273,15 @@ const barButtons = [
 .router-link-exact-active,
 .v-list-item--active {
   color: #50b848 !important;
-  font-size: 30px;
+  // font-size: 25px;
 }
 
 #nav {
   display: flex;
   align-items: center;
   align-self: center;
-  justify-content: center;
+  justify-content: right;
+
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -300,7 +298,8 @@ const barButtons = [
   display: block;
   height: auto;
   padding: 20px;
-  color: black;
+  color: #2b4479;
+  font-size: 15px;
   text-decoration: none;
   &:hover {
     color: #134b8e;
@@ -317,12 +316,12 @@ const barButtons = [
   display: block;
   height: auto;
   padding: 20px;
-  color: black;
+  color: #2b4479;
   text-decoration: none;
   cursor: pointer;
 
   &:hover {
-    color: #134b8e;
+    color: #2b4479;
   }
 }
 
@@ -343,17 +342,17 @@ const barButtons = [
 
 .dropdown li {
   width: 250px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #2b4479;
 }
 
 .dropdown li a {
   display: block;
   padding: 10px;
-  color: black;
+  color: #2b4479;
   text-decoration: none;
 
   &:hover {
-    color: #134b8e;
+    color: #2b4479;
   }
 }
 

@@ -4,10 +4,10 @@
     <!-- Text Section --------------------------------------------------------------------------------->
 
     <!-- Blogue section------------------------------------------------------------------------------->
-    <text-section title="Blogue" :content="blogues">
+    <text-section title="Nos Services" :content="blogues">
       <template v-slot:btn>
         <v-btn color="primary" class="text-none blogueBtn">
-          <span class="text-white">Lire Plus de blogue</span></v-btn
+          <span class="text-white">Lire Plus d'articles</span></v-btn
         >
       </template>
     </text-section>
