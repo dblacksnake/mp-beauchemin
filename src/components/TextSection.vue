@@ -8,8 +8,10 @@
       <div class="mt-4 pa-4">
         {{ c.text }}
       </div>
-      
-      <vBtn  @click="to(c.href)">
+      <div class="mt-4 pa-4">
+        {{ text }}
+      </div>
+      <vBtn v-if="c.href" @click="to(c.href)">
         <span class="text-white"> {{ c.btn }}</span>
       </vBtn>
     </VCol>
@@ -22,24 +24,25 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router"
+import { useRouter } from 'vue-router'
 
-const route = useRouter();
+const route = useRouter()
 
 defineProps({
   title: String,
+  text: String,
   content: Object
   //   numberCols: Number
 })
 
-const to = (href:string) =>{
+const to = (href: string) => {
   route.push(href)
 }
 </script>
 
 <style lang="scss" scoped>
-.v-btn{
-  background-color:#2b4479;
-  color:white !important;
+.v-btn {
+  background-color: #2b4479;
+  color: white !important;
 }
 </style>

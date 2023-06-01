@@ -1,7 +1,14 @@
 <template>
-
-  <router-link to="/articles"> <h5><VIcon>mdi-arrow-left</VIcon> {{ info.title }}</h5></router-link>
-
+  <VRow>
+    <VCol lg="6">
+      <router-link to="/articles">
+        <h5>
+          <span class="backTitle">Articles</span><VIcon class="icon">mdi-arrow-left</VIcon>
+          {{ info.title }}
+        </h5></router-link
+      >
+    </VCol>
+  </VRow>
 </template>
 
 <script setup lang="ts">
@@ -14,15 +21,18 @@ const info = computed(() => store.state.selectedBlogue)
 
 <style lang="scss" scoped>
 * {
-  margin-top: 1rem;
+  font-size: 2rem;
 }
 
-i{
+.v-row {
+  margin-top: 2rem;
+}
+.backTitle {
+  margin-right: 0.5rem;
+  color: #5baf3c;
 }
 
-.title{
-  margin-left: -4rem;
-  margin: auto 0;
-
+.icon {
+  margin-right: 2rem;
 }
 </style>
