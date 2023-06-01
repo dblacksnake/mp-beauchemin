@@ -39,26 +39,35 @@
         <div class="line"></div>
       </template>
     </text-section>
-    <VRow>
-      <VCol cols="12">
-        <h1>L’historique de Mazout & Propane Beauchemin à Saint-Jean-sur-Richelieu</h1>
-      </VCol>
-      <VCol cols="12" style="color: #134b8e; font-weight: bold">
-        La réputation que nous possédons nous pousse à vous offrir un service inégalé. Notre
-        évolution, grâce aux transformations, nous permet de toujours dépasser nos limites et vos
-        attentes.
-      </VCol>
-      <VCol cols="12" style="color: #134b8e"> Voici donc un aperçu de notre histoire. </VCol>
-    </VRow>
+    <text-section>
+      <template #text1>
+        <VRow>
+          <VCol cols="12">
+            <h1>L’historique de Mazout & Propane Beauchemin à Saint-Jean-sur-Richelieu</h1>
+          </VCol>
+          <VCol cols="12" style="color: #134b8e; font-weight: bold">
+            La réputation que nous possédons nous pousse à vous offrir un service inégalé. Notre
+            évolution, grâce aux transformations, nous permet de toujours dépasser nos limites et vos
+            attentes.
+          </VCol>
+          <VCol cols="12" style="color: #134b8e"> Voici donc un aperçu de notre histoire. </VCol>
+        </VRow>
+      </template>
+    </text-section>
+    <!-- Timeline -------------------------------------------------------------------->
     <VRow>
       <VCol cols="12">
         <h1 style="color: #134b8e">Notre Histoire</h1>
       </VCol>
-      <VCol class="timeline pa-16">
+      <VCol  class="timeline pa-4">
         <v-timeline>
-          <v-timeline-item v-for="(year, i) in history" :key="i" color="secondary" small>
+          <v-timeline-item 
+          v-for="(year, i) in history" 
+          :key="i"  
+          dot-color="#039c91"
+          small>
             <template v-slot:opposite>
-              <span :class="`headline font-weight-bold black--text`" v-text="year.year"></span>
+              <span :class="`headline font-weight-bold `"  v-text="year.year"></span>
             </template>
             <v-card class="cardText elevation-2">
               <v-card-text>
@@ -69,6 +78,7 @@
         </v-timeline>
       </VCol>
     </VRow>
+    <!-- Video -------------------------------------------------------------------->
     <VRow>
       <video controls>
         <source src="../assets/mazout.mp4" type="video/mp4" />
@@ -84,19 +94,19 @@ import CarouselView from '@/components/CarouselView.vue'
 
 const contents = [
   {
-    img: computed(() => '../assets/mapPicture.png'),
+    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
     alt: 'agriculteur'
   },
   {
-    img: '@/assets/img/Agriculteurs_1.jpg',
+    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
     alt: 'agriculteur'
   },
   {
-    img: '@/assets/img/Agriculteurs_1.jpg',
+    src: '@/assets/img/Agriculteurs_1.jpg',
     alt: 'agriculteur'
   },
   {
-    img: '@/assets/img/Agriculteurs_1.jpg',
+    src: '@/assets/img/Agriculteurs_1.jpg',
     alt: 'agriculteur'
   }
 ]
@@ -169,17 +179,30 @@ const history = [
   }
 }
 
+
+@media (max-width: 500px) {
+ 
+  video {
+  margin: 0 auto;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+}
+}
 video {
   margin: 0 auto;
   align-self: center;
   width: 80%;
   height: 80%;
 }
-
+.headline{
+    color: #2b4479;
+  }
 .cardText {
+ 
   &:hover {
-    box-shadow: 0px 30px 10px -10px rgb(0 0 0 / 60%), 0px 20px 20px 0px rgb(0 0 0 / 34%),
-      0px 10px 50px 0px rgb(0 0 0 / 32%) !important;
+    box-shadow: 0px 30px 10px -10px  #039c91, 0px 20px 20px 0px  #039c91,
+      0px 10px 50px 0px  #039c91 !important;
   }
 }
 </style>

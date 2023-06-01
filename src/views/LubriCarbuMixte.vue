@@ -10,10 +10,10 @@
     </VRow>
     <VRow>
       <VCol>
-        <img src="../assets/img/technicien_mpbeauchemin.jpg" alt="Tech" />
+        <img class='imgDisplay' src="../assets/img/technicien_mpbeauchemin.jpg" alt="Tech" />
       </VCol>
       <VCol>
-        <img src="../assets/img/Propane Beauchemin_réservoirs.jpg" alt="Propane" />
+        <img class='imgDisplay' src="../assets/img/Propane Beauchemin_réservoirs.jpg" alt="Propane" />
       </VCol>
     </VRow>
   </v-container>

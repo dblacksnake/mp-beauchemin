@@ -68,8 +68,8 @@
         </v-card>
       </VCol>
       <VCol>
-        <img src="../assets/img/Chaussettes et foyer.jpg" alt="Chaussettes et foyer" />
-        <img src="../assets/img/flamme propane.jpg" alt="Chaussettes et foyer" />
+        <img class='imgDisplay' src="../assets/img/Chaussettes et foyer.jpg" alt="Chaussettes et foyer" />
+        <img class='imgDisplay' src="../assets/img/flamme propane.jpg" alt="Chaussettes et foyer" />
       </VCol>
     </VRow>
   </v-container>

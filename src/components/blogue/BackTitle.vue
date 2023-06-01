@@ -1,6 +1,7 @@
 <template>
-  <router-link to="/blogue"> <VIcon>mdi-arrow-left</VIcon></router-link>
-  <h5>{{ info.title }}</h5>
+
+  <router-link to="/articles"> <h5><VIcon>mdi-arrow-left</VIcon> {{ info.title }}</h5></router-link>
+
 </template>
 
 <script setup lang="ts">
@@ -14,8 +15,14 @@ const info = computed(() => store.state.selectedBlogue)
 <style lang="scss" scoped>
 * {
   margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+}
+
+i{
+}
+
+.title{
+  margin-left: -4rem;
+  margin: auto 0;
+
 }
 </style>

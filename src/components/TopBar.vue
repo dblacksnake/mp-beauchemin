@@ -208,27 +208,7 @@ const to = (href:string) => route.push(href)
   }
 }
 
-// .btnContainer{
-//   padding-top: 2rem;
-//   margin: 0px;
-// }
-// .v-application a,
-// .v-btn{
-//   color:black ;
-//   text-decoration: none;
-//   margin:2rem;
-// }
 
-// .v-application a:hover,
-// .v-btn:hover{
-//   color:#134B8E ;
-//   border-bottom: 5px #50B848 solid;
-// }
-
-// #nav{
-//   display: flex;
-//   align-items: center;
-// }
 .router-link-exact-active,
 .v-list-item--active {
   color: #50b848 !important;

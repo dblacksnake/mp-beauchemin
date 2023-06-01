@@ -8,7 +8,10 @@
       <div class="mt-4 pa-4">
         {{ c.text }}
       </div>
-      <a href="/blogue"> {{ c.btn }}</a>
+      
+      <vBtn  @click="to(c.href)">
+        <span class="text-white"> {{ c.btn }}</span>
+      </vBtn>
     </VCol>
     <slot name="text1"> </slot>
     <slot name="text2"> </slot>
@@ -19,9 +22,24 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from "vue-router"
+
+const route = useRouter();
+
 defineProps({
   title: String,
   content: Object
   //   numberCols: Number
 })
+
+const to = (href:string) =>{
+  route.push(href)
+}
 </script>
+
+<style lang="scss" scoped>
+.v-btn{
+  background-color:#2b4479;
+  color:white !important;
+}
+</style>

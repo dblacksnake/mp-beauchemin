@@ -1,7 +1,7 @@
 <template>
     <v-container grid-list-xs>
-        <VRow class="topMenu mt-4">
-          <VCol class="menu" v-for="menu in topMenu" :key="menu.name">
+        <VRow class="topMenu  mt-4">
+          <VCol class="menu hidden-sm-and-down" v-for="menu in topMenu" :key="menu.name">
               <VRow>
                 <router-link :to="menu.href">
                     <VRow>
@@ -17,13 +17,41 @@
                   </router-link>
                 </VRow>
             </VCol>
+            <v-list
+    class="smMenu ml-2 hidden-md-and-up"
+            >
+ 
+    <v-list-item
+      v-for="(item, i) in topMenu"
+      :key="i"
+      :value="item"
+      @click="to(item.href)"
+    >
+   
+
+   <template v-slot:prepend>
+     <v-icon :icon="item.icon"></v-icon>
+   </template>
+   <router-link :to="item.href"> {{item.name}}</router-link>
+   <!-- <v-list-item-title>{{item.name}}</v-list-item-title> -->
+ </v-list-item>
+</v-list>
+            
         </VRow>
         <router-view class="mt-10"></router-view>
     </v-container>
   </template>
 
   <script setup lang="ts">
-const topMenu = [
+  import { useRouter } from "vue-router";
+
+  const route = useRouter();
+  const topMenu = [
+      {
+        href: '/gaz-propane',
+        name: 'Gaz propane',
+        icon: 'mdi-propane-tank',
+      },
       {
         href: '/gaz-propane/foyer-gaz',
         name: 'Foyer au gaz',
@@ -54,27 +82,33 @@ const topMenu = [
         name: 'Livraison de propane',
         icon: 'mdi-truck-delivery',
       },
-      // {
-      //   href: '/gaz-propane/remplissage',
-      //   name: 'Points de remplissage',
-      //   icon: 'mdi-basket-fill',
-      // },
     ];
+
+const to = (href:string) => route.push(href)
+
 </script>
 
 <style lang="scss" scoped>
+
+.smMenu{
+  background-color: #FAFAFA;
+  // margin-left:50;
+  left: 50%;
+  transform: translateX(-50%);  
+  width: 100%;
+  
+
+}
 .topMenu{
     width: 100%;
     min-height: 15rem;
     margin: 0;
-    // padding: rem 0;
     background-color: #FAFAFA;
 
     align-content:center ;
     i::before{
         color:#134B8E;
         font-size: 3rem;
-        // margin-top: 1rem;
     }
 
     a{
@@ -89,7 +123,6 @@ const topMenu = [
 .menu{
 
   &:hover .topTitle{
-    // color:#134B8E;
     font-size: 1.55rem;
 
   }

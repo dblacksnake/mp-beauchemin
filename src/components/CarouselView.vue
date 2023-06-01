@@ -11,7 +11,7 @@
     class="mySwiper"
   >
     <swiper-slide v-for="content in contents" :key="content.alt"
-      ><img src="../assets/mapPicture.png"
+      ><img :src="content.src"
     /></swiper-slide>
   </swiper>
 </template>
@@ -40,9 +40,9 @@ const modules = [EffectFade, Navigation, Pagination]
 
 <style lang="scss" scoped>
 .swiper {
-  margin-top: 0.15rem;
-  width: 100%;
-  height: 10%;
+  // margin-top: 0.15rem;
+  width: 100;
+  height: 25rem;
 }
 
 .swiper-slide {
@@ -61,11 +61,11 @@ const modules = [EffectFade, Navigation, Pagination]
   width: 100%;
   height: 100%;
   object-fit: cover;
-  aspect-ratio: 2/4;
+  // aspect-ratio: 2/4;
 }
 
-.swiper {
-  margin-left: auto;
-  margin-right: auto;
-}
+// .swiper {
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 </style>

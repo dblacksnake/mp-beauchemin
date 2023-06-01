@@ -14,6 +14,13 @@ import TopBar from './components/TopBar.vue'
 </script>
 
 <style lang="scss">
+
+@media (max-width: 1279px) {
+  .imgDisplay{
+    display: none;
+  }
+}
+
 * {
   text-align: center;
   color: black;
@@ -37,4 +44,6 @@ a {
   text-decoration: none;
   color: black;
 }
+
+
 </style>
