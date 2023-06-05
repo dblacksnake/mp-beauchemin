@@ -3,7 +3,7 @@
     <h1>Chauffe-eau de piscine au propane : la solution pour prolonger votre été!</h1>
     <h2>10 avantages à posséder un barbecue au propane</h2>
     <VRow>
-      <VCol lg="6" md="12" sm="12" cols="12">
+      <VCol lg="12" md="12" sm="12" cols="12">
         <div class="text" style="margin-top: 2rem" v-for="info in infos" :key="info.title">
           <router-link @click="selectedBlogue(info)" :to="info.href"
             ><h3>{{ info.title }}</h3></router-link

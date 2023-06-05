@@ -2,7 +2,7 @@
   <carousel-view :contents="items"></carousel-view>
   <v-container>
     <!-- Service Section --------------------------------------------------------------------------------->
-    <text-section title="Services" :content="services">
+    <text-section :serviceTitle="true" title="Services" :content="services">
       <template v-slot:btn>
         <v-btn class="text-none blogueBtn">
           <span class="text-white">Voir plus de services</span></v-btn
@@ -19,28 +19,28 @@
     </text-section>
     <!-- Text Section --------------------------------------------------------------------------------->
     <text-section>
-    <template #text1>
-      <VCol lg="12" md="12" sm="12" cols="12" class="mb-8">
-      <h2 primary-title >
-        Un service personnalisé pour votre chauffage à l'huile et chauffage au mazout
-      </h2>
-      <div class="mt-4 pr-16 pl-16">
-        Notre solide réputation de services est une de nos forces. Que ce soient nos délais de
-        livraison de propane ou de mazout, notre service d'urgence ou l'installation de votre
-        système de propane, nous sommes toujours au rendez-vous.
-      </div>
-      <div class="mt-4">
-        <span><a>Appelez-nous</a></span> pour du gaz
-        <span style="color: black"> propane, livraison </span>
-        automatique ou sur appel rapide et efficace!
-      </div>
-    </VCol>
-  </template>
+      <template #text1>
+        <VCol lg="12" md="12" sm="12" cols="12" class="mb-8">
+          <h2 primary-title>
+            Un service personnalisé pour votre chauffage à l'huile et chauffage au mazout
+          </h2>
+          <div class="mt-4 pr-16 pl-16">
+            Notre solide réputation de services est une de nos forces. Que ce soient nos délais de
+            livraison de propane ou de mazout, notre service d'urgence ou l'installation de votre
+            système de propane, nous sommes toujours au rendez-vous.
+          </div>
+          <div class="mt-4">
+            <span><a>Appelez-nous</a></span> pour du gaz
+            <span style="color: black"> propane, livraison </span>
+            automatique ou sur appel rapide et efficace!
+          </div>
+        </VCol>
+      </template>
     </text-section>
     <!-- Contact Section ------------------------------------------------------------------------------>
     <ContactSection></ContactSection>
     <!-- Button Section -------------------------------------------------------------------------------->
-    <buttonSection ></buttonSection>
+    <buttonSection></buttonSection>
   </v-container>
 </template>
 
@@ -50,29 +50,33 @@
 import ContactSection from '@/components/home/ContactSection.vue'
 import TextSection from '@/components/TextSection.vue'
 import ButtonSection from '@/components/home/BottomSection.vue'
-import CarouselView from '@/components/CarouselView.vue';
+import CarouselView from '@/components/CarouselView.vue'
 
 const services = [
   {
     title: 'Livraison Propane',
-    text:'',
+    text: `Ne manquez plus jamais de propane!Notre entreprise située à Saint-Jean-sur-Richelieu offre un service sécuritaire de livraison de gaz propane à Montréal et sur la Rive-Sud, selon vos besoins.`,
     btn: 'Lire plus',
-    href: '/gaz-propane/livraison'
-
+    href: '/gaz-propane/livraison',
+    icon: 'mdi-calendar-clock',
+    articleTitle: true
   },
   {
-    title: 'Location de réservoir de gaz propane',
-    text:'',
+    title: 'location de réservoir de gaz propane',
+    text: `Acheter un réservoir de gaz propane résidentiel représente généralement des responsabilités ainsi qu’une dépense importante. Bonne nouvelle : Mazout & Propane Beauchemin vous permet de bénéficier d’un réservoir de gaz propane de qualité supérieure… à un prix avantageux et sans souci!`,
     btn: 'Lire plus',
-    href: '/gaz-propane/location'
-
+    href: '/gaz-propane/location',
+    icon: 'mdi-truck-delivery',
+    articleTitle: true
   },
   {
     title: 'Foyer au gaz',
-    text:'',
+    text: `Foyers au gaz propane de qualité supérieure
+Les foyers au gaz propane sont des appareils qui ne cessent de gagner en popularité, et pour cause! Esthétiques, économiques et écologiques, ils trouvent une place de choix dans les demeures québécoises. Chez Mazout & Propane Beauchemin, nous vendons et installons des modèles convenant à tous les décors et à tous les budgets.`,
     btn: 'Lire plus',
-    href: '/gaz-propane/foyer-gaz'
-
+    href: '/gaz-propane/foyer-gaz',
+    icon: 'mdi-fireplace',
+    articleTitle: true
   }
 ]
 
@@ -94,7 +98,6 @@ const articles = [
   }
 ]
 
-
 const items = [
   {
     src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
@@ -112,41 +115,40 @@ const items = [
 </script>
 
 <style lang="scss" scoped>
+.container {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
 
-  .container {
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-  }
+.v-card__title {
+  display: block;
+}
 
-  .v-card__title {
-    display: block;
-  }
+a {
+  color: #50b848 !important;
+  cursor: pointer;
+}
 
-  a {
-    color: #50b848 !important;
-    cursor: pointer;
-  }
+span a:hover {
+  text-decoration: underline;
+}
 
-  span a:hover {
-    text-decoration: underline;
-  }
+h1 {
+  color: #50b848;
+}
 
-  h1 {
-    color: #50b848;
-  }
+.line {
+  background: black;
+  height: 1px;
+  width: 90%;
 
-  .line {
-    background: black;
-    height: 1px;
-    width: 90%;
-
-    margin: auto;
-    margin-top: 3rem;
-    margin-bottom: 2.5rem;
-  }
-.v-btn{
-  background-color:#2b4479;
-  color:white !important;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+}
+.v-btn {
+  background-color: #2b4479;
+  color: white !important;
 }
 </style>

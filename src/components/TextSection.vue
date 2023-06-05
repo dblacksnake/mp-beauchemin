@@ -4,7 +4,11 @@
       <h1>{{ title }}</h1>
     </VCol>
     <VCol cols="12" sm="12" lg="4" md="4" v-for="c in content" :key="c.title">
-      <h4>{{ c.title }}</h4>
+      <div v-if="c.articleTitle" class="serviceTitle">
+        <v-icon :icon="c.icon"></v-icon>
+        <h2>{{ c.title }}</h2>
+      </div>
+      <h4 v-else>{{ c.title }}</h4>
       <div class="mt-4 pa-4">
         {{ c.text }}
       </div>
@@ -31,6 +35,7 @@ const route = useRouter()
 defineProps({
   title: String,
   text: String,
+  serviceTitle: Boolean,
   content: Object
   //   numberCols: Number
 })
@@ -41,8 +46,15 @@ const to = (href: string) => {
 </script>
 
 <style lang="scss" scoped>
+.serviceTitle {
+  display: flex;
+}
 .v-btn {
   background-color: #2b4479;
   color: white !important;
+}
+
+h2 {
+  color: #2b4479 !important;
 }
 </style>
