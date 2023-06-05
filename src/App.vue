@@ -9,14 +9,20 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
+import { useStore } from 'vuex'
 import TopBar from './components/TopBar.vue'
+
+const store = useStore()
+
+onMounted(() => {
+  store.dispatch('GET_Photos', 'photos')
+})
 </script>
 
 <style lang="scss">
-
 @media (max-width: 1279px) {
-  .imgDisplay{
+  .imgDisplay {
     display: none;
   }
 }
@@ -44,6 +50,4 @@ a {
   text-decoration: none;
   color: black;
 }
-
-
 </style>

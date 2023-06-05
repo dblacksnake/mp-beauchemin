@@ -11,7 +11,7 @@
     class="mySwiper"
   >
     <swiper-slide v-for="content in contents" :key="content.alt"
-      ><img :src="content.src"
+      ><img :src="content?.url"
     /></swiper-slide>
   </swiper>
 </template>
@@ -60,8 +60,8 @@ const modules = [EffectFade, Navigation, Pagination]
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  // aspect-ratio: 2/4;
+  object-fit: fill;
+  aspect-ratio: 2/4;
 }
 
 // .swiper {

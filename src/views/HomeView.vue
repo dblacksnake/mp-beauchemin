@@ -1,5 +1,6 @@
 <template>
   <carousel-view :contents="items"></carousel-view>
+
   <v-container>
     <!-- Service Section --------------------------------------------------------------------------------->
     <text-section :serviceTitle="true" title="Services" :content="services">
@@ -51,7 +52,10 @@ import ContactSection from '@/components/home/ContactSection.vue'
 import TextSection from '@/components/TextSection.vue'
 import ButtonSection from '@/components/home/BottomSection.vue'
 import CarouselView from '@/components/CarouselView.vue'
+import { computed, onMounted, ref } from 'vue'
+import { useStore } from 'vuex'
 
+const store = useStore()
 const services = [
   {
     title: 'Livraison Propane',
@@ -98,20 +102,11 @@ const articles = [
   }
 ]
 
-const items = [
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-  }
-]
+const items = computed(() => store.state.homeCarousel)
+
+onMounted(() => {
+  store.dispatch('GET_PagePhotos', { page: 'home', db: 'homeCarousel' })
+})
 </script>
 
 <style lang="scss" scoped>
@@ -152,3 +147,5 @@ h1 {
   color: white !important;
 }
 </style>
+
+function getDownloadURL(storageRef: any) { throw new Error('Function not implemented.') }

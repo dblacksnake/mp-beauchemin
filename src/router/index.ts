@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import LubriCarbuMixteVue from '../views/LubriCarbuMixte.vue'
+import LubriCarbuMixteVue from '../views/LubriCarbu.vue'
 import BlogueViewVue from '@/views/BlogueView.vue'
 import ContactView from '@/views/ContactView.vue'
 import GazPropaneView from '@/views/GazPropaneView.vue'
