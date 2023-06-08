@@ -84,28 +84,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import TextSection from '@/components/TextSection.vue'
 import CarouselView from '@/components/CarouselView.vue'
+import { useStore } from 'vuex'
 
-const contents = [
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-    alt: 'agriculteur'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-    alt: 'agriculteur'
-  },
-  {
-    src: '@/assets/img/Agriculteurs_1.jpg',
-    alt: 'agriculteur'
-  },
-  {
-    src: '@/assets/img/Agriculteurs_1.jpg',
-    alt: 'agriculteur'
-  }
-]
+const store = useStore()
+const contents = computed(() => store.state.aboutCarousel)
 const history = [
   {
     year: '1953',
@@ -164,6 +149,10 @@ const history = [
     text: 'Acquisition de Boutique Chaleur à Longueuil'
   }
 ]
+
+onMounted(() => {
+  store.dispatch('GET_PagePhotos', { page: 'about', db: 'aboutCarousel' })
+})
 </script>
 
 <style lang="scss" scoped>

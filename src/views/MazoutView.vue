@@ -1,8 +1,10 @@
 <template>
+  <carousel-view :contents="contents"></carousel-view>
+
   <v-container grid-list-xs>
     <h1>Tout pour le chauffage au mazout en Montérégie et à Montréal</h1>
     <VRow>
-      <VCol lg="6" md="12" sm="12" cols="12">
+      <VCol lg="12" md="12" sm="12" cols="12">
         <v-card elevation="0">
           <v-card-title primary-title> Les avantages du mazout </v-card-title>
           <v-card-text>
@@ -67,14 +69,24 @@
           </VCardText>
         </v-card>
       </VCol>
-      <VCol>
-        <img class='imgDisplay' src="../assets/img/Chaussettes et foyer.jpg" alt="Chaussettes et foyer" />
-        <img class='imgDisplay' src="../assets/img/flamme propane.jpg" alt="Chaussettes et foyer" />
-      </VCol>
     </VRow>
   </v-container>
 </template>
 
+<script setup lang="ts">
+import { computed, onMounted, ref } from 'vue'
+import { useStore } from 'vuex'
+import CarouselView from '../components/CarouselView.vue'
+
+const store = useStore()
+const contents = computed(() => store.state.mazoutPhotos)
+const showImg = ref(false)
+onMounted(() => {
+  console.log('enter')
+
+  store.dispatch('GET_PagePhotos', { page: 'mazout', db: 'mazoutPhotos' })
+})
+</script>
 <style lang="scss" scoped>
 ul {
   margin-left: 2rem;

@@ -28,6 +28,7 @@ const store = createStore({
     homeCarousel: [],
     aboutCarousel: [],
     mixteCarousel: [],
+    propaneCarousel:[],
     mazoutPhotos:[]
   },
   mutations: {
@@ -51,6 +52,9 @@ const store = createStore({
       }else if(photos.page === 'mazout'){
         delete photos.page
         state.mazoutPhotos = photos
+      }else if(photos.page === 'propane'){
+        delete photos.page
+        state.propaneCarousel = photos
       }else{
         delete photos.page
         state.photos = photos

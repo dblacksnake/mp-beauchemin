@@ -57,11 +57,11 @@ const modules = [EffectFade, Navigation, Pagination]
 }
 
 .swiper-slide img {
-  display: block;
+  aspect-ratio: 32/10 !important;
+  // display: block;
   width: 100%;
-  height: 100%;
+  // height: auto;
   object-fit: fill;
-  aspect-ratio: 2/4;
 }
 
 // .swiper {

@@ -14,21 +14,15 @@
 import LubrifiantsView from '@/components/LubriCarbu/LubrifiantsView.vue'
 import CarburantsView from '@/components/LubriCarbu/CarburantsView.vue'
 import CarouselView from '@/components/CarouselView.vue'
+import { computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
 
-const items = [
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-  }
-]
+const store = useStore()
+const items = computed(() => store.state.mixteCarousel)
+
+onMounted(() => {
+  store.dispatch('GET_PagePhotos', { page: 'mixte', db: 'mixteCarousel' })
+})
 </script>
 
 <style lang="scss" scoped>

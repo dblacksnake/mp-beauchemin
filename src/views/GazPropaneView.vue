@@ -36,7 +36,10 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import CarouselView from '@/components/CarouselView.vue'
+import { computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
 
+const store = useStore()
 const route = useRouter()
 const topMenu = [
   {
@@ -76,22 +79,12 @@ const topMenu = [
   }
 ]
 
-const items = [
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-  },
-  {
-    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-  }
-]
+const items = computed(() => store.state.propaneCarousel)
 
 const to = (href: string) => route.push(href)
+onMounted(() => {
+  store.dispatch('GET_PagePhotos', { page: 'propane', db: 'propaneCarousel' })
+})
 </script>
 
 <style lang="scss" scoped>
