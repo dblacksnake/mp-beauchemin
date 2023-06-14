@@ -59,12 +59,12 @@ const infos = [
     href: 'articles/conversion',
     title: 'Quel type de véhicule est apte pour la conversion au système de gaz propane?',
     text: 'Le propane est le carburant alternatif par excellence et propose à ses consommateurs de nombreux avantages économiques, écologiques ainsi qu’en performance automobile. Cette alternative est utilisée par un nombre grandissant de particuliers, mais également par de grandes entreprises ayant des flottes de véhicules de tout genre.'
-  },
-  {
-    href: 'articles/entretien',
-    title: 'Des conseils pour choisir et entretenir votre foyer au propane',
-    text: 'Le foyer au propane comporte plusieurs avantages : il est esthétique, facile d’utilisation, efficace, écologique et plus encore! Cependant, afin d’assurer la complète efficacité et sécurité de votre foyer au propane, il faut l’entretenir. Lisez ces trucs et conseils de Mazout et Propane Beauchemin pour vous aider à y voir plus clair!'
   }
+  // {
+  //   href: 'articles/entretien',
+  //   title: 'Des conseils pour choisir et entretenir votre foyer au propane',
+  //   text: 'Le foyer au propane comporte plusieurs avantages : il est esthétique, facile d’utilisation, efficace, écologique et plus encore! Cependant, afin d’assurer la complète efficacité et sécurité de votre foyer au propane, il faut l’entretenir. Lisez ces trucs et conseils de Mazout et Propane Beauchemin pour vous aider à y voir plus clair!'
+  // }
 ]
 const router = useRouter()
 const store = useStore()

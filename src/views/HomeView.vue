@@ -5,7 +5,7 @@
     <!-- Service Section --------------------------------------------------------------------------------->
     <text-section :serviceTitle="true" title="Services" :content="services">
       <template v-slot:btn>
-        <v-btn class="text-none blogueBtn">
+        <v-btn @click="to('/gaz-propane')" class="text-none blogueBtn">
           <span class="text-white">Voir plus de services</span></v-btn
         >
       </template>
@@ -13,7 +13,7 @@
     <!-- Artcicle section------------------------------------------------------------------------------->
     <text-section title="Articles" :content="articles">
       <template v-slot:btn>
-        <v-btn class="text-none blogueBtn">
+        <v-btn @click="to('/articles')" class="text-none blogueBtn">
           <span class="text-white">Lire Plus d'articles</span></v-btn
         >
       </template>
@@ -54,7 +54,9 @@ import ButtonSection from '@/components/home/BottomSection.vue'
 import CarouselView from '@/components/CarouselView.vue'
 import { computed, onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const store = useStore()
 const services = [
   {
@@ -103,6 +105,7 @@ const articles = [
 ]
 
 const items = computed(() => store.state.homeCarousel)
+const to = (href: string) => router.push(href)
 
 onMounted(() => {
   store.dispatch('GET_PagePhotos', { page: 'home', db: 'homeCarousel' })
