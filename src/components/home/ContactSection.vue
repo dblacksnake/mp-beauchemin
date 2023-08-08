@@ -1,7 +1,7 @@
 <template>
   <VRow class="contact pa-2">
     <VCol cols="12" sm="12" lg="3" md="4">
-      <img src="../../assets/img/flamme gaz.jpg" alt="Contact" />
+      <img src="../../assets/img/flammegaz.jpg" alt="Contact" />
     </VCol>
     <VCol cols="12" sm="12" lg="3" md="4">
       <v-card class="contactInfos" min-height="250" elevation="0" color="transparent">

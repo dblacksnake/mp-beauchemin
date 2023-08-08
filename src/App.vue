@@ -5,6 +5,7 @@
     <v-main class="main">
       <router-view class="router" />
     </v-main>
+    <img class="lignes" src="./assets//background/CurvedLines.png" alt="" />
   </v-app>
 </template>
 
@@ -25,15 +26,33 @@ onMounted(() => {
   .imgDisplay {
     display: none;
   }
+  .lignes {
+    width: 95% !important;
+    margin: auto;
+  }
 }
 
+@media (max-width: 400px) {
+  main {
+    width: 100%;
+    background-color: red;
+  }
+}
 * {
   text-align: center;
   color: black;
 }
 
-main {
+.lignes {
+  width: 80%;
+  margin: auto;
   margin-top: 2rem;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 2.8rem;
 }
 
 .router {

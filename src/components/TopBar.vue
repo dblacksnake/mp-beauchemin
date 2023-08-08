@@ -1,17 +1,9 @@
 <template>
   <div class="appBar">
-    <v-navigation-drawer 
-    v-model="drawer" 
-    location="right" 
-    :disable-resize-watcher="true"
-    temporary>
+    <v-navigation-drawer v-model="drawer" location="right" :disable-resize-watcher="true" temporary>
       <!-- Mobile Menu -->
       <v-list>
-        <v-list-item  
-        v-for="btn in barButtons" 
-        :key="btn.name" 
-        link
-        @click="to(btn.href)">
+        <v-list-item v-for="btn in barButtons" :key="btn.name" link @click="to(btn.href)">
           <router-link :to="btn.href" v-if="btn.type === 'btn'">
             {{ btn.name }}
           </router-link>
@@ -46,7 +38,7 @@
       <!-- Regular Top Button -------------------------------------------------------------->
       <nav class="hidden-md-and-down reglardNav" id="nav">
         <ul class="normalMenu">
-          <li  v-for="btn in barButtons" :key="btn.name">
+          <li v-for="btn in barButtons" :key="btn.name">
             <router-link :to="btn.href" v-if="btn.type === 'btn'">
               {{ btn.name }}
             </router-link>
@@ -74,7 +66,7 @@
       <v-app-bar-nav-icon class="hidden-lg-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
     <div class="under">
-      <H2 class="hidden-sm-and-down">LA PASSION QUI NOUS ALLUME</H2>
+      <H2 class="hidden-sm-and-down">LA PASSION QUI NOUS ALLUMEs</H2>
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <h2 style="color: #134b8e !important">514-990-1901</h2>
     </div>
@@ -83,9 +75,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
-const route = useRouter();
+const route = useRouter()
 const isOpen = ref(false)
 const hover = ref(false)
 const drawer = ref(false)
@@ -167,7 +159,7 @@ const barButtons = [
   }
 ]
 
-const to = (href:string) => route.push(href)
+const to = (href: string) => route.push(href)
 </script>
 
 <style lang="scss" scoped>
@@ -207,7 +199,6 @@ const to = (href:string) => route.push(href)
     margin-left: 2rem;
   }
 }
-
 
 .router-link-exact-active,
 .v-list-item--active {
